@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Thrift Store</title>
+ <link rel="shortcut icon" type="image"href="../10.png">
+<!--bootstrap5 link-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+<!--bootstrap5 link-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+<!--bootstrap link-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+   <https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<!--bootstrap link-->
+<!--font -->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+<!--font -->
+
+<!-- jQuery -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+
+<title>THRIFT FASHION</title>
+<style>
+*{
+margin:0px;
+padding:0px;
+box-sizing:border-box;
+}
+.text
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size:2.5em;
+	margin-left:5%;
+	margin-right:5%;
+}
+navbar{
+	background-color:#FFF;
+	padding:8px;
+}
+
+.navbar-nav .nav-link{
+	font-size:14px;
+	font-weight:500;
+	text-transform:uppercase;
+	letter-spacing:1px;
+}
+.navbar-nav .nav-item{
+	margin:0px 5px;
+}
+
+.navbar-nav .nav-item:hover{
+	text-decoration:underline;
+	color:#CCC;
+}
+.navbar-user li{
+	display:inline-block;
+	text-align:center;
+}
+.navbar-user li a{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	position:relative;
+	margin-top:10px;
+	font-size:16px;
+	width:40px;
+	height:40px;
+	color:#000;
+	transition:color 0.3s ease;
+	left:70px;
+}
+.navbar-user li a:hover{
+	color:#b5aac4;
+	text-decoration:none;
+}
+.checkout{
+	color:#b5aac4;
+}
+.checkout a{
+	background-color:#eceff6;
+	border-radius:50%;
+}
+.checkout_items{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	position:absolute;
+	width:18px;
+	height:17px;
+	top:1px;
+	bottom:9px;
+	left:22px;
+	background-color:#f00;
+	border-radius:50%;
+	font-size:14px;
+	color:#CCC;
+}
+.a1{
+	 width: 100%;
+    height: 100vh;
+}
+.text
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size:2em;
+	margin-left:5%;
+	margin-right:5%;
+}
+.space
+{
+	font-family: 'Ubuntu', sans-serif;
+	font-size:20px;
+	margin-left:2%;
+	margin-right:2%;
+	display: flex;
+  justify-content: space-around;
+  border:none;
+  border-style:none;
+ 
+}
+/* Float four columns side by side */
+.b2 {
+  float: left;
+  width: 32%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.b1 {
+	margin: 0 -5px;
+	}
+
+/* Clear floats after the columns */
+.b1:after {
+  content: "";
+
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .b2 {
+    width: 100%;
+   
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.car {
+	text-decoration:none;
+ border-color:white;
+ 
+  text-align: center;
+
+}
+.resize{
+	width:100px;
+	height:120px;
+	margin:0 auto;
+}
+.inline{
+	margin:0 auto;
+	font-weight:200;
+}
+.bod
+{
+	border-color:white;
+}
+.foot
+{
+	color:white;
+}	
+footer {
+  background: #222;
+  color: #aaa;
+  padding-top: 10px;
+}
+
+footer a {
+  color: #aaa;
+}
+
+footer a:hover {
+  color: #fff;
+}
+
+footer h3 {
+ color:white;
+  letter-spacing: 1px;
+  margin: 30px 0 20px;
+}
+
+footer .three-colus {
+ overflow: hidden;
+}
+
+footer .three-column li{
+ width: 33.3333%;
+  float: left;
+  padding: 5px 0;
+}
+
+footer .socila-list {
+  overflow: hidden;
+  margin: 20px 0 10px;
+}
+
+footer .socila-list li {
+  float: left;
+  margin-right: 3px;
+  opacity: 0.7;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+footer .socila-list li:hover {
+  opacity: 1;
+}
+
+footer .img-thumbnail {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid #444;
+  margin-bottom: 5px;
+}
+
+footer .copyright {
+  padding: 15px 0;
+  background: #333;
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+footer .copyright span {
+  color:white;
+}	
+.img{
+	margin-top:5%;
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+<div class="container">
+  <a class="navbar-brand" href="#">  <img src="img/logo.png" class="logo" style=width:"50px" height="50px" /> </a>  <h5><b>THRIFT FASHION </b></h5>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+ 
+      <li class="nav-item">
+        <a class="nav-link" href="../index.html">Home<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+     <li class="nav-item">
+        <a class="nav-link" href="../product.html">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../checkout/1.html">Checkout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sale/sale.html">Sale</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="contact.html">Contact</a>
+      </li>
+    </ul>
+ <ul class="navbar-user">
+    <li><a href="#"><i class="fas fa-user" arial-hidden="true"></i></a></li>
+ <li> <a href="#"><i class="fas fa-search" arial-hidden="true"></i></a></li>
+ <li class="checkout">
+ <a href="#">
+ <i class="fas fa-shopping-cart" arial-hidden="true"></i>
+ <span id="checkout_items" class="checkout_items">2</span>
+ </a>
+  </li>
+  </ul>   
+  </div>
+  </div>
+  </div>
+</nav>
+
+
+
+<div class="img">
+<img src="img/33.png" width="100%" height="auto">
+<br><br><br>
+<div class="text">
+<center><h>Thrifting Can Help Solve the <br>Fashion Waste Crisis</h1>
+<h5>Our love for constant newness has come at too high a price for our planet.<br> Shopping secondhand reduces the cost of fashion by giving new life to used<br> clothes. Resale moves us one step closer to a circular fashion future.
+</h5></center>
+</div>
+<br>
+<div class="row b1">
+  <div class="column b2">
+    <div class="card car">
+    <img src="img/1.png" alt="" class="resize">
+      <h3>New clothing production is hurting the planet.</h3>
+      <h5 class="inline">Thrift without the risk. Enjoy hassle-free<br>
+      returns with your order.</h5>
+    </div>
+  </div>
+
+  <div class="column b2">
+    <div class="card car">
+    <img src="img/7.png" alt="" class="resize">
+      <h3>Perfectly good clothing <br>is being discarded.</h3>
+      <h5 class="inline">1 in 2 people throw their clothes straight in the trash. 3
+73% of apparel is sent to landfill or incinerated, 95% of which could be reused or recycled. 2</h5>
+     
+    </div>
+  </div>
+  
+  <div class="column b2">
+    <div class="card car">
+    <img src="img/8.png" alt="" class="resize">
+      <h3>New clothing production <br>is hurting the planet.</h3><br>
+      <h5 class="inline">Thrift without the risk. Enjoy hassle-free
+      <br>returns with your order.</h5>
+    </div>
+  </div>
+  </div>
+<br><br>
+<div class="container a3">
+ <br><br>
+     <div class="card-content">
+        <div class="row">
+        
+           <div class="col-md-6 py-3 py-md-0">
+           <h6><b>OUR MARKETPLACE</b></h6>
+           <br>
+           <h4><b>We created a smarter way <br>to shop and sell.</b></h4>
+           <br>
+
+           <p>We deliver a modern resale experience on one of the largest<br> online platforms for women’s and kids’ secondhand apparel,<br>providing a fun and convenient place to shop and clean<br> out your closet.</p>
+
+ </div>
+           <div class="col-md-6 py-3 py-md-0">
+     <div class="card">
+     <div class="card-image-top">
+        <img src="img/smart.jpg" width="100%">
+     </div>
+     </div>
+       </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+     </div>
+</div>
+<br>
+<div class="container a3">
+ <br><br>
+     <div class="card-content">
+        <div class="row">
+         <div class="col-md-6 py-3 py-md-0">
+     <div class="card">
+     <div class="card-image-top">
+        <img src="img/PEO.png"  width="100%">
+     </div>
+     </div>
+       </div>
+           <div class="col-md-6 py-3 py-md-0">
+           <h6><b>OUR IMPACT</b></h6>
+           <br>
+           <h4><b>THRIFT FASION does good for people and the planet.</b></h4>
+           <br>
+
+           <p>We give new life to millions of used clothes, offsetting the environmental and financial cost of fashion.</p>
+ </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+     </div>
+</div>
+<div class="container a3">
+ <br><br>
+     <div class="card-content">
+        <div class="row">
+        <br><br>
+           <div class="col-md-6 py-3 py-md-0">
+           <h4><b>ReFashion</b></h4>
+           <br>
+           <h5>Upcycle Your Closet: How to Make Your Own ReFashion Outfit with Zero Waste Daniel’s DIY Tutorial</h5>
+<br>
+           <p>We teamed up with designer Zero Waste Daniel to create an upcycled collection made entirely from secondhand garments and fabric scraps.</p>
+
+ </div>
+           <div class="col-md-6 py-3 py-md-0">
+     <div class="card">
+     <div class="card-image-top">
+        <img src="img/upcycle.png" width="100%">
+     </div>
+     </div>
+       </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+     </div>
+</div>
+<div class="container a3">
+ <br><br>
+     <div class="card-content">
+        <div class="row">
+         <div class="col-md-6 py-3 py-md-0">
+     <div class="card">
+     <div class="card-image-top">
+        <img src="img/closet.png" width="100%">
+     </div>
+     </div>
+       </div>
+           <div class="col-md-6 py-3 py-md-0">
+           <br><br<br>
+
+           <br>
+           <h4><b>Shop Their Closets</b></h4>
+           <br>
+  <h5>Shop Their Closets: Scoop Up Goodies from Your Style Crushes!</h5>
+  <br>
+           <p>We give new life to millions of used clothes, offsetting the <br>environmental and financial cost of fashion.</p>
+ </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+     </div>
+</div>
+
+<br><br>
+<footer>
+  <div class="container">
+    <div class="row">
+      
+      <div class="col-lg-4 col-md-6">
+        <h3>Web Map</h3>
+         <a class="nav-link" href="#">HOME</a>
+         <br />
+          <a class="nav-link" href="#">ABOUT US</a>
+          <br />
+           <a class="nav-link" href="#">PRODUCTS</a>
+           <br />
+            <a class="nav-link" href="#">CHECKOUT</a>
+            <br />
+             <a class="nav-link" href="#">CONTACTS</a>
+         <br ><br >
+       
+      </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <h3>CATEGORIES</h3>
+         <a class="nav-link" href="#">WOMEN</a>
+         <br />
+          <a class="nav-link" href="#">MEN</a>
+          <br />
+           <a class="nav-link" href="#">KIDS</a>
+           <br />
+            <a class="nav-link" href="#">CHECKOUT</a>
+            <br />
+             <a class="nav-link" href="#">CONTACTS</a>
+         <br ><br >
+        </div>
+        <div class="col-lg-4 col-md-6">
+        <h3>ABOUT US</h3>
+        <p><strong>Our love for constant newness has come at too high a price for our planet. Shopping secondhand reduces the cost of fashion by giving new life to used clothes. Resale moves us one step closer to a circular fashion future.</strong></p>
+        <br>
+        <!--Google map-->
+<div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 500px">
+ <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14472.049434487622!2d67.0687072!3d24.9316489!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x8eef9ba9639151a5!2sAPTECH%20Computer%20Education%20F.B%20.Area!5e0!3m2!1sen!2s!4v1660418839988!5m2!1sen!2s" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+<!--Google Maps-->
+   
+        </div></div>
+        
+        
+        </div>
+        
+
+        
+      
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+ 
+</footer>
+</div>
+      
+
+</body>
+</html>
